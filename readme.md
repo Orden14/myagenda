@@ -7,7 +7,7 @@ B3 développement web & applications
 ## Lancer le projet
 Pour faciliter l'éxecution du projet sur toutes les machines, il est préférable de posséder docker ainsi que yarn.  
 Pour lancer le projet, se placer dans la root directory du projet puis :
-- docker-compose up (dockerise une base de données pour le projet ainsi que maildev)
+- docker-compose up (dockerise une base de données pour le projet)
 - yarn run dependencies
 - yarn run truncate-database
 - yarn run server-start  
