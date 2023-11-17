@@ -13,8 +13,6 @@ Pour lancer le projet, se placer dans la root directory du projet puis :
 - yarn run truncate-database
 - yarn run server-start  
 
-(Les trois commandes ci-dessus sont des commandes custom ajoutées dans le package.json)  
-
 Le projet sera accessible sur http://localhost:8001  
 
 ## Utilisateurs
