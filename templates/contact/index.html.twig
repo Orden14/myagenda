@@ -3,10 +3,53 @@
 {% block title %}Agenda{% endblock %}
 
 {% block body %}
-
-<div class="example-wrapper">
-
-    This friendly message is coming from:
-    <ul>
-</div>
+    <div class="container mt-5">
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="alert alert-warning" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endfor %}
+        
+        {% if app.user %}
+            <a class="btn btn-primary mx-1 cmarginbottom" href="{{ path('contact_new') }}">Ajouter un contact</i></a>
+        {% endif %}
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Email</th>
+                    <th>Téléphone</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for contact in contacts %}
+                    <tr>
+                        <td>{{ contact.nom }}</td>
+                        <td>{{ contact.prenom }}</td>
+                        <td>{{ contact.email }}</td>
+                        <td>{{ contact.telephone }}</td>
+                        <td>
+                            <div class="d-flex">
+                                <a href="{{ path('contact_show', { 'id': contact.id }) }}" class="btn btn-primary cmarginright"><i class="fa-solid fa-eye"></i></a>
+                                {% if is_granted('ROLE_ADMIN') %}
+                                    <a href="{{ path('contact_edit', { 'id': contact.id }) }}" class="btn btn-secondary cmarginright"><i class="fa-solid fa-pen"></i></a>
+                                    <form id="delete{{ contact.id }}" method="post" action="{{ path('contact_delete', {'id': contact.id}) }}" data-controller="confirm">
+                                        <a type="button" class="btn btn-danger flex-shrink-0" id="{{ contact.id }}" data-action="confirm#confirmDeletion" title="Attention, la suppression est définitive" data-bs-toggle="tooltip">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </form>
+                                {% endif %}
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}
