@@ -41,6 +41,15 @@ class ContactController extends AbstractController
         if (!$this->getUser()) {
             return $this->redirectToRoute('app_login');
         }
+
+        $contact = $this->entityManager
+            ->getRepository(Contact::class)
+            ->find($request->get('id'))
+        ;
+
+        return $this->render('contact/show.html.twig', [
+            'contact' => $contact,
+        ]);
     }
 
     #[Route('/contact/create', name: 'contact_new')]

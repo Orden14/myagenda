@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ contact.email }}{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <a href="{{ path('app_index') }}" class="btn btn-primary cmargintopa">Retour</a>
+    <div class="card mt-5">
+        <div class="card-header">
+            <h1 class="display-5 fw-bolder">Contact</h1>
+        </div>
+        <div class="card-body  text-center">
+            <div class="mb-1">Nom : {{ contact.nom }}</div>
+            <div class="mb-1">Prénom : {{ contact.prenom }}</div>
+            <div class="mb-1">Email : {{ contact.email }}</div>
+            <div class="mb-1">Téléphone : {{ contact.telephone }}</div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+ 
