@@ -24,8 +24,8 @@ class ContactFixtures extends Fixture
 
     private function generateContact(Generator $faker): Contact
     {
-        return (new Contact())->setNom($faker->userName())
-            ->setPrenom($faker->userName())
+        return (new Contact())->setNom($faker->lastName())
+            ->setPrenom($faker->firstName())
             ->setEmail($faker->email())
             ->setTelephone($faker->phoneNumber())
         ;

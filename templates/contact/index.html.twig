@@ -13,7 +13,7 @@
             {% endfor %}
         {% endfor %}
         
-        {% if app.user %}
+        {% if is_granted('ROLE_ADMIN') %}
             <a class="btn btn-primary mx-1 cmarginbottom" href="{{ path('contact_new') }}">Ajouter un contact</i></a>
         {% endif %}
         

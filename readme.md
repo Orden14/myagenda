@@ -2,6 +2,7 @@
 
 ## Auteur
 Thomas L.  
+EFREI  
 B3 développement web & applications
 
 ## Lancer le projet
